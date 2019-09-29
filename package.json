@@ -1,0 +1,30 @@
+{
+  "name": "interview-challenge-backend2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js",
+    "generate-colors": "babel-node generateColors.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "apollo-boost": "^0.4.4",
+    "apollo-server-express": "^2.9.4",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "graphql": "^14.5.8",
+    "graphql-tag": "^2.10.1",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.19.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/node": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "nodemon": "^1.19.2",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
+  }
+}
