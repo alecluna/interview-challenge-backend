@@ -1,42 +1,27 @@
 import fs from "fs";
 import fetch from "node-fetch";
 
-// delays
-const delay = ms => {
-  return new Promise(resolve => setTimeout(resolve, ms));
-};
-
 const generateColors = () => {
-  let colorList = [];
   let counter = 130;
 
   console.log("Generating random colors...");
+  let colorPromises = []; //generate ~100 random colors through async fetch to colors api
 
-  //generate ~100 random colors through async fetch to colors api
-  while (counter != 0) {
+  //negative while slightly boosts performance over traditional for/while loops
+  while (--counter) {
     let randhex = "" + ((Math.random() * 0xffffff) << 0).toString(16);
-    let newColor = getColor(randhex);
-
-    newColor
-      .then(color => {
-        if (color) colorList.push(color);
-      })
-      .catch(err => console.log(err));
-
-    counter--;
+    colorPromises.push(getColor(randhex));
   }
 
-  delay(4000).then(() => {
-    Promise.all(colorList)
-      .then(done => {
-        fs.writeFileSync("colors.json", JSON.stringify(done));
-        console.log("List of Colors: ");
-        console.log(done);
-      })
-      .catch(err => console.log(err));
-  });
-
-  return colorList;
+  return Promise.all(colorPromises) //filters out null values
+    .then(colorsMaybeNull => colorsMaybeNull.filter(c => c)) //
+    .then(colorsNotNull => {
+      fs.writeFileSync("colors.json", JSON.stringify(colorsNotNull));
+      console.log("List of Colors: ");
+      console.log(colorsNotNull);
+      return colorsNotNull;
+    })
+    .catch(err => console.log(err));
 };
 
 const getColor = async color => {
