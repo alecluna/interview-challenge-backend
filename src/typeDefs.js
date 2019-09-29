@@ -16,7 +16,7 @@ const typeDefs = gql`
   # Color and Color array is always non-nullable
   type Query {
     getColors: [Color!]!
-    getColorsPaginate(pagination: Pagination): [Color]
+    getColorsPaginate(pagination: Pagination): [Color!]!
     getColorID(id: ID!): Color!
     getColorName(color: String!): Color!
   }
