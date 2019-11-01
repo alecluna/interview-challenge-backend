@@ -40,6 +40,7 @@ const getColor = async color => {
     jsonColor.color = colorValParsed.name.value;
     console.log("\nColor: " + jsonColor.color);
   } catch (err) {
+    console.log("Error: " + err);
     return null;
   }
 

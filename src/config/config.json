@@ -2,8 +2,9 @@
   "development": {
     "username": "postgres",
     "password": "mysecretpassword",
-    "database": "database_development",
+    "database": "postgres",
     "host": "127.0.0.1",
+    "PORT": "5432",
     "dialect": "postgres"
   },
   "production": {

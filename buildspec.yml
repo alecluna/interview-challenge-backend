@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - npm install
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+  build:
+    commands:
+      - echo Building src folder with Babel...
+      - ./node_modules/.bin/babel src -d dist
+artifacts:
+  files:
+    - "dist/*"
+  discard-paths: yes

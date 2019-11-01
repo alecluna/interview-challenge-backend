@@ -19,6 +19,7 @@ const typeDefs = gql`
     getColorsPaginate(pagination: Pagination): [Color!]!
     getColorID(id: ID!): Color!
     getColorName(color: String!): Color!
+    getColorRandom: Color!
   }
 `;
 
