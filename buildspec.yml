@@ -14,5 +14,5 @@ phases:
       - ./node_modules/.bin/babel src -d dist
 artifacts:
   files:
-    - "dist/*"
+    - "dist/**/*"
   discard-paths: yes
