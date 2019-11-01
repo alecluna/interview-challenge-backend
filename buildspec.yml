@@ -11,8 +11,8 @@ phases:
   build:
     commands:
       - echo Building src folder with Babel...
-      - ./node_modules/.bin/babel src -d dist
+      - ./node_modules/.bin/babel-node src/index.js
 artifacts:
   files:
-    - "dist/**/*"
+    - "src/*"
   discard-paths: yes
