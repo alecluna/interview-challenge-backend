@@ -14,5 +14,5 @@ phases:
       - ./node_modules/.bin/babel src -d build && mkdir build/config && cp src/config/config.json build/config
 artifacts:
   files:
-    - "**/*"
-  base-directory: build
+    - "build/**/*"
+  discard-paths: yes
